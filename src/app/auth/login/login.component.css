@@ -2,6 +2,30 @@ mat-form-field, textarea{
   width:100%;
 }
 
+/* mat-form-field{
+  background-color: rgba(51, 170, 51, .1)
+} */
+
 mat-spinner {
   margin: auto;
+}
+
+.login-card {
+  max-width: 600px;
+}
+
+.login-background {
+  background-image: url('../../../assets/shutterstock_695113861.jpg');
+  background-size: cover
+}
+
+.login-register {
+  display: block;
+  /* margin-top: 2em; */
+}
+
+.login-title {
+  text-align: center;
+  font-size: xx-large;
+  margin: .7em;
 }

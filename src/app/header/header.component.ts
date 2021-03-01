@@ -1,6 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription }                 from 'rxjs';
-import { AuthService }                  from '../auth/auth.service';
+import { Component, 
+          OnInit, 
+          OnDestroy, 
+          ViewChild, 
+          HostListener }       from '@angular/core';
+import { Subscription }        from 'rxjs';
+import { AuthService }         from '../auth/auth.service';
+import { MatSidenav }          from '@angular/material/sidenav';
+
 
 
 @Component({
@@ -10,27 +16,57 @@ import { AuthService }                  from '../auth/auth.service';
 })
 
 export class HeaderComponent{
+  // Side nav snippet
+  opened = true;
+  @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
   userIsAuthenticated = false;
-  //private authListenerSub: Subscription;
+  private authListenerSub: Subscription;
 
   constructor(private authService: AuthService) {
 
   }
 
   onLogout() {
-    // this.authService.logout()
+    this.authService.logout()
   }
 
   ngOnInit() {
-    // this.userIsAuthenticated = this.authService.getIsAuthenticated();
-    // this.authListenerSub = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
-    //     this.userIsAuthenticated = isAuthenticated;
-    //   });
-    }
+    this.userIsAuthenticated = this.authService.getIsAuthenticated();
+    this.authListenerSub = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
+    this.userIsAuthenticated = isAuthenticated;
+    });
 
+    console.log(window.innerWidth)
+    if (window.innerWidth < 768 && this.userIsAuthenticated == true) {
+      this.sidenav.fixedTopGap = 55;
+      this.opened = false;
+    } else {
+      this.sidenav.fixedTopGap = 55;
+      this.opened = true;
+    }
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth < 768 && this.userIsAuthenticated == true) {
+      this.sidenav.fixedTopGap = 55;
+      this.opened = false;
+    } else {
+      this.sidenav.fixedTopGap = 55
+      this.opened = true;
+    }
+  }
+
+  isBiggerScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width < 768) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
    ngOnDestroy() {
-    // this.authListenerSub.unsubscribe();
+    this.authListenerSub.unsubscribe();
    }
 }
