@@ -211,3 +211,16 @@ mat-grid-tile {
     visibility: visible !important;
   }
 }
+
+.login-signup-link {
+  display: inline;
+}
+
+.login-register {
+  /* display: inline-block; */
+  /* text-align: center; */
+  display: inline;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 4px;
+}

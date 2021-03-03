@@ -11,21 +11,36 @@ mat-spinner {
 }
 
 .login-card {
-  max-width: 600px;
+  max-width: 400px;
+  margin: auto;
 }
 
-.login-background {
+/* .login-background {
   background-image: url('../../../assets/shutterstock_695113861.jpg');
   background-size: cover
+} */
+
+.login-logo {
+  max-width: 100px;
+  padding-top: 2em;
+  margin: auto;
+  
 }
 
-.login-register {
-  display: block;
-  /* margin-top: 2em; */
+.login-button{
+  color: white;
+  width: 200px;
 }
 
-.login-title {
-  text-align: center;
-  font-size: xx-large;
-  margin: .7em;
+.login-button-div{
+  display: flex;
+}
+
+.fc {
+  justify-content: center;
+}
+
+.login-hr {
+  height: 1px;
+  background-color: lightgray;
 }

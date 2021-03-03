@@ -1,5 +1,5 @@
 import { NgForm }         from "@angular/forms";
-import  { Component }     from '@angular/core';
+import { Component }      from '@angular/core';
 import { AuthService }    from '../auth.service';
 
 @Component({

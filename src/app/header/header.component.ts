@@ -37,8 +37,8 @@ export class HeaderComponent{
     this.userIsAuthenticated = isAuthenticated;
     });
 
-    console.log(window.innerWidth)
-    if (window.innerWidth < 768 && this.userIsAuthenticated == true) {
+    console.log(window.innerWidth) //&& this.userIsAuthenticated == true
+    if (window.innerWidth < 768) {
       this.sidenav.fixedTopGap = 55;
       this.opened = false;
     } else {
@@ -48,7 +48,7 @@ export class HeaderComponent{
   }
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    if (event.target.innerWidth < 768 && this.userIsAuthenticated == true) {
+    if (event.target.innerWidth < 768) { //&& this.userIsAuthenticated == true
       this.sidenav.fixedTopGap = 55;
       this.opened = false;
     } else {

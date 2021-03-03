@@ -1,8 +1,8 @@
 <mat-card class="login-card">
+  <div class="login-logo"><img mat-card-image src="../../../assets/lab7_primary_logo.png"></div>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form (submit)="onLogin(loginform)" #loginform="ngForm" *ngIf="!isLoading">
-    <mat-card-title class="login-title">Welcome to the Innovator Portal</mat-card-title>
-    <img mat-card-image src="../../../assets/shutterstock_695113861.jpg">
+    <!-- <mat-card-title class="login-title">Welcome to the Innovator Portal</mat-card-title> -->
     <mat-form-field>
       <input name="email" type="email" matInput ngModel placeholder="email" #emailInput="ngModel" required email>
     <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
@@ -11,13 +11,20 @@
         <input name="password" type="password" ngModel matInput placeholder="password" #passwordInput="ngModel" required>
         <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
     </mat-form-field>
-    <mat-card-action>
-      <button color = 'accent' type="submit" mat-raised-button *ngIf="!isLoading">Login</button>
-      
+    <mat-card-action class="login-button-div fc">
+      <button class="login-button" color = 'primary' type="submit" mat-raised-button *ngIf="!isLoading">Login</button>
     </mat-card-action>
+
+    <hr class='login-hr' style="margin-top: 2em; border-color: lightgray; border-radius: 1px;" noshade="">
     
   </form>
-  <mat-card-subtitle class="login-register">Don't have an account?</mat-card-subtitle>
-  <mat-card-footer> Don't have an account?</mat-card-footer>
+  <mat-card-subtitle class="login-register" style="display: inline-block;margin-top:10px" *ngIf="!isLoading">Don't have an account? </mat-card-subtitle>
+  <!-- <span><a class="login-signup-link" href="/signup">Sign Up</a></span> -->
+  <!-- <mat-card-footer class="login-register"> Don't have an account?</mat-card-footer> -->
+  <div class="login-button-div fc">
+    <button color='accent' type="submit" mat-raised-button *ngIf="!isLoading" routerLink='/signup'>Create New Account</button>
+  </div>
 </mat-card>
+
+<!-- <div class="login-side"></div> -->
   
