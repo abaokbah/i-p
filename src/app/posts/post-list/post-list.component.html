@@ -1,17 +1,26 @@
 <!-- <h1>Idea Basket</h1> -->
-<section class="posts-subheader">
-  <div class="example-label">Idea Basket</div>
-  <div class="example-button-row">
-    <!-- <button mat-button>Basic</button> -->
-    <button mat-raised-button color="primary" 
-    class="posts-new-button"
-    routerLink="/create">Add New</button>
-    <!-- <button mat-button color="accent">Accent</button>
-    <button mat-button color="warn">Warn</button>
-    <button mat-button disabled>Disabled</button>
-    <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+<!-- <section>
+  <div>
+    <div class="example-label">Idea Basket</div>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" 
+        class="posts-new-button"
+        routerLink="/create">Add New</button>
+        
+      </div>
   </div>
-</section>
+</section> -->
+
+<div class="flx-box" style="margin-top: 200px;">
+  <!-- <div class="item item-1"></div>
+  <div class="item item-2"></div>
+  <div class="item item-3"></div> -->
+  <div class="item-1"><h1 class="example-label">Idea Basket</h1></div>
+  <div class="item-2"><button mat-raised-button 
+    color="primary" class="posts-new-button" 
+    routerLink="/create">Add New
+  </button></div>
+</div>
 <mat-divider></mat-divider>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <mat-accordion style="margin-top: 30px; margin-bottom: 2em;" multi="false" *ngIf="posts.length > 0">
