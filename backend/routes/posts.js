@@ -1,5 +1,5 @@
-const Post    = require('../model/post');
-const express = require("express");
+const Post      = require('../model/post');
+const express   = require("express");
 const checkAuth = require("../Middleware/check-auth")
 
 

@@ -21,6 +21,7 @@ import { HttpClientModule,
 import { AuthInterceptor }      from "./auth/auth-interceptor";
 import { AngularMaterialModule} from "./angular-material.module";
 import { HomeComponent }       from "./home/home.component";
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { HomeComponent }       from "./home/home.component";
     PostListComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    NotfoundComponent
   ],
   imports: [
     AppRoutingModule,

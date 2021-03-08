@@ -6,18 +6,22 @@ import { LoginComponent }       from './auth/login/login.component';
 import { SignupComponent }      from "./auth/signup/signup.component";
 import { AuthGuard }            from './auth/auth.guard';
 import { HomeComponent }        from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
 
-  {path: 'home',    component: HomeComponent},
+  {path: 'home',    component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'create',  component: PostCreateComponent, canActivate: [AuthGuard]},
   {path: 'posts',   component: PostListComponent, canActivate: [AuthGuard]},
   {path: 'edit/:postId', component: PostCreateComponent, canActivate: [AuthGuard]},
 
   {path: 'login',   component: LoginComponent},
   {path: 'signup',  component: SignupComponent},
+
+  {path: '404', component: NotfoundComponent},
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

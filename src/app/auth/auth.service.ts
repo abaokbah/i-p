@@ -32,7 +32,7 @@ export class AuthService {
 
   createUser(email: string, password: string, username: string){
     const authD: AuthData = {email: email, password: password, username: username}
-    this.http.post("http://localhost:3000/api/user/signup", authD)
+    this.http.post("http://192.168.8.130:3000/api/user/signup", authD)
     .subscribe(response => {
       console.log(response)
       this.loginUser(authD.email,authD.password);
@@ -41,7 +41,7 @@ export class AuthService {
 
   loginUser(email: string, password: string){
     const authD: AuthData = { email: email, password: password, username: null};
-    this.http.post<{ token: string, expiresIn: number }>("http://localhost:3000/api/user/login", authD)
+    this.http.post<{ token: string, expiresIn: number }>("http://192.168.8.130:3000/api/user/login", authD)
     .subscribe(resp => {
       const token = resp.token;
       this.token = token;

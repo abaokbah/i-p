@@ -8,4 +8,5 @@ mat-spinner {
 
 .signup-chbox {
   padding-bottom: 10px;
+  overflow-wrap: break-word;
 }

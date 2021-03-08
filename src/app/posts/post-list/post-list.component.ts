@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Subscription } from 'rxjs';
 
-import { Post } from "../post.model";
+
+import { Post }         from "../post.model";
 import { PostsService } from "../posts.service";
+import { Subscription, VirtualTimeScheduler } from 'rxjs';
+import { AuthService }  from '../../auth/auth.service';
 
 @Component({
   selector: "app-post-list",
@@ -16,19 +18,36 @@ export class PostListComponent implements OnInit, OnDestroy {
   //   { title: "Third Post", content: "This is the third post's content" }
   // ];
   posts: Post[] = [];
-  private postsSub: Subscription;
+  isLoading = false;
+  userIsAuthenticated = false;
+  //private postsSub: Subscription;
 
-  constructor(public postsService: PostsService) {}
+  private postSub = new Subscription();
+  private authSub = new Subscription();
+
+  constructor(private postsService: PostsService, private authService: AuthService) {}
 
   ngOnInit() {
-    this.posts = this.postsService.getPosts();
-    this.postsSub = this.postsService.getPostUpdateListener()
+    this.isLoading = true;
+    this.postsService.getPosts();
+    this.postSub = this.postsService.getPostUpdateListener()
       .subscribe((posts: Post[]) => {
+        this.isLoading = false;
         this.posts = posts;
       });
+      this.userIsAuthenticated = this.authService.getIsAuthenticated()
+      this.authSub = this.authService.getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      })
+  }
+
+  onDelete(postId: string){
+
   }
 
   ngOnDestroy() {
-    this.postsSub.unsubscribe();
+    this.postSub.unsubscribe();
+    this.authSub.unsubscribe();
   }
 }

@@ -6,3 +6,25 @@
 .info-text {
   text-align: center;
 }
+
+section {
+  display: table;
+  margin-bottom: 20px;
+  margin-top: 220px;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 24px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.posts-new-button {
+  color: white;
+}
+
+.example-button-row {
+  margin-left: 8em;
+  align-self:flex-end;
+}

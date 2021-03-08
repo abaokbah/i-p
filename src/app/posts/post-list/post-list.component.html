@@ -1,4 +1,20 @@
-<mat-accordion multi="true" *ngIf="posts.length > 0">
+<!-- <h1>Idea Basket</h1> -->
+<section class="posts-subheader">
+  <div class="example-label">Idea Basket</div>
+  <div class="example-button-row">
+    <!-- <button mat-button>Basic</button> -->
+    <button mat-raised-button color="primary" 
+    class="posts-new-button"
+    routerLink="/create">Add New</button>
+    <!-- <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+  </div>
+</section>
+<mat-divider></mat-divider>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion style="margin-top: 30px; margin-bottom: 2em;" multi="false" *ngIf="posts.length > 0">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
       {{ post.title }}
