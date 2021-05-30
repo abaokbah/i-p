@@ -4,13 +4,15 @@ import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatExpansionModule } from "@angular/material/expansion"
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatDatepickerModule }    from '@angular/material/datepicker';
+import { MatNativeDateModule }     from '@angular/material/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 
 import { AppComponent }         from "./app.component";
-import { PostCreateComponent }  from "./posts/post-create/post-create.component";
+import { PostCreateIdeaComponent }  from "./posts/post-create-idea/post-create-idea.component";
 import { HeaderComponent }      from "./header/header.component";
 import { PostListComponent }    from "./posts/post-list/post-list.component";
 import { AppRoutingModule }     from "./app-routing.module";
@@ -20,14 +22,14 @@ import { HttpClientModule,
         HTTP_INTERCEPTORS }     from "@angular/common/http";
 import { AuthInterceptor }      from "./auth/auth-interceptor";
 import { AngularMaterialModule} from "./angular-material.module";
-import { HomeComponent }       from "./home/home.component";
-import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent }        from "./home/home.component";
+import { NotfoundComponent }    from './notfound/notfound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent,
+    PostCreateIdeaComponent,
     HeaderComponent,
     PostListComponent,
     LoginComponent,
@@ -45,10 +47,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     AngularMaterialModule,
   ],
   providers: [
+    MatDatepickerModule, //idk why this is needed. Check!
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],

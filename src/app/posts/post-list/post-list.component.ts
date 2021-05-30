@@ -43,7 +43,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   onDelete(postId: string){
-
+    // TODO
   }
 
   ngOnDestroy() {
