@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
@@ -51,6 +51,7 @@ import { NotfoundComponent }    from './notfound/notfound.component';
     MatNativeDateModule,
     HttpClientModule,
     AngularMaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     MatDatepickerModule, //idk why this is needed. Check!

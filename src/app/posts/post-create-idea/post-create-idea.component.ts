@@ -1,11 +1,27 @@
 import { Component, 
+          NgModule, 
           ViewChild}              from "@angular/core";
-import { NgForm }                 from "@angular/forms";
+import { NgForm,
+          FormBuilder, 
+          FormControl, 
+          FormGroup }             from "@angular/forms";
+import { ThemePalette }           from "@angular/material/core"
 import { MatAccordion }           from '@angular/material/expansion';
-import { MatDatepickerModule }    from '@angular/material/datepicker';
+import { PostsService }           from "../posts.service";
+// import { MatDatepickerModule }    from '@angular/material/datepicker';
+
+export interface Domain {
+  name: string;
+  subdomain?: Domain[];
+}
 
 
-import { PostsService } from "../posts.service";
+// export interface Domain {
+//   name: string;
+//   completed: boolean;
+//   color: ThemePalette;
+//   subtasks?: Domain[];
+// }
 
 @Component({
   selector: "app-post-create-idea",
@@ -18,7 +34,33 @@ export class PostCreateIdeaComponent {
   enteredTitle = "";
   enteredContent = "";
 
-  constructor(public postsService: PostsService) {}
+  // domains: FormGroup;
+
+  options: FormGroup;
+  hideRequiredControl = new FormControl(false);
+  floatLabelControl = new FormControl('');
+
+  domain: Domain = {
+    name: "energy",
+    subdomain: [
+      {name: "Circular Economy & Decarbonization"},
+      {name: "Energy Storage"},
+      {name: "Green Fuels"}
+    ]
+  }
+
+  constructor(public postsService: PostsService, fb: FormBuilder) {
+    this.options = fb.group({
+      hideRequired: this.hideRequiredControl,
+      floatLabel: this.floatLabelControl,
+    });
+  }
+
+    // this.domains = fb.group({
+    //   circulaEconomy: false,
+    //   greenfuels: false,
+    //   energyefficiency: false
+    // });
 
   step = 0;
 

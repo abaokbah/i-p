@@ -10,10 +10,17 @@ textarea {
   min-width: 120px;
 } */
 
+.isf_header {
+  margin-bottom: 32px;
+}
+
+.isf_links {
+  color: rgb(45, 130, 226);
+}
+
 .example-headers-align .mat-expansion-panel-header-title,
 .example-headers-align .mat-expansion-panel-header-description {
   flex-basis: 0;
-  
 }
 
 .example-headers-align .mat-expansion-panel-header-description {
@@ -23,4 +30,41 @@ textarea {
 
 .example-headers-align .mat-form-field + .mat-form-field {
   /* margin-left: 8px; */
+}
+
+.mat-expansion-panel-header-title {
+  /* background-color: coral; */
+  font-weight: 500;}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container .mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+/* .domain-section {
+  margin: 12px 0;
+} */
+
+/* .domain-margin {
+  margin: 0 12px;
+} */
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
 }

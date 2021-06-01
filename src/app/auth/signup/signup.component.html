@@ -1,29 +1,32 @@
-<mat-card>
-  <mat-card-title>Become our partner in innovation</mat-card-title>
-  <mat-card-subtitle>Signup today</mat-card-subtitle>
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <div >
-    <form (submit)="onSignup(signupform)" #signupform="ngForm" *ngIf="!isLoading">
-    <mat-form-field>
-        <input name="username" type="text" matInput ngModel placeholder="username" #emailInput="ngModel">
-      <mat-error *ngIf="emailInput.invalid">Please enter a valid username</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input name="email" type="email" matInput ngModel placeholder="email" #emailInput="ngModel" required email>
-    <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input name="password" type="password" ngModel matInput placeholder="password" #passwordInput="ngModel" required>
-      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
-    </mat-form-field>
-    <mat-checkbox class="signup-chbox">
-    </mat-checkbox><p>By checking this box, I acknowledge that I read 
-      and understood Terms of Use and Conditions.</p>
-    <button color = 'accent' type="submit" mat-raised-button *ngIf="!isLoading">Signup</button>
-  </form></div>
-  <mat-card-subtitle class="login-register" style="display: inline-block; margin-top:10px">Got an account already? </mat-card-subtitle><a class="login-signup-link" href="/login">Login</a>
-</mat-card>
-
-<!-- <div style="display:block; width: 100px; height: 100px; background-color: lightsalmon;"></div> -->
+<div class="register_image">
+  <mat-card>
+    <mat-card-title>Become our partner in innovation</mat-card-title>
+    <mat-card-subtitle>Signup today</mat-card-subtitle>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div >
+      <form (submit)="onSignup(signupform)" #signupform="ngForm" *ngIf="!isLoading">
+      <mat-form-field>
+          <input name="username" type="text" matInput ngModel placeholder="username" #emailInput="ngModel">
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid username</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input name="email" type="email" matInput ngModel placeholder="email" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input name="password" type="password" ngModel matInput placeholder="password" #passwordInput="ngModel" required>
+        <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
+      </mat-form-field>
+      <mat-checkbox class="signup-chbox">
+      </mat-checkbox><p>By checking this box, I acknowledge that I read 
+        and understood Terms of Use and Conditions.</p>
+      <button color = 'accent' type="submit" mat-raised-button *ngIf="!isLoading">Signup</button>
+    </form></div>
+    <mat-card-subtitle class="login-register" style="display: inline-block; margin-top:10px">Got an account already? </mat-card-subtitle><a class="login-signup-link" href="/login">Login</a>
+  </mat-card>
+  
+  <!-- <div style="display:block; width: 100px; height: 100px; background-color: lightsalmon;"></div> -->
+  
+</div>

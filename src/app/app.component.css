@@ -4,8 +4,6 @@ main {
     margin: 5em auto;
 }
 
-.header{  
-}
 .example-container {
     width: auto;
     height: 100%;
@@ -23,3 +21,6 @@ main {
     padding: 20px;
   }
   
+  .menu_icon {
+    margin-right: 15px;
+  }
