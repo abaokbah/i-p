@@ -15,6 +15,13 @@ export interface Domain {
   subdomain?: Domain[];
 }
 
+// export interface Idea {
+//   name: string;
+//   subdomain?: Idea[];
+//   dev?: Idea[];
+
+// }
+
 
 // export interface Domain {
 //   name: string;
@@ -33,6 +40,7 @@ export class PostCreateIdeaComponent {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   enteredTitle = "";
   enteredContent = "";
+  other = false;
 
   // domains: FormGroup;
 
@@ -45,7 +53,12 @@ export class PostCreateIdeaComponent {
     subdomain: [
       {name: "Circular Economy & Decarbonization"},
       {name: "Energy Storage"},
-      {name: "Green Fuels"}
+      {name: "Green Fuels"},
+      {name: "Energy Storage"},
+      {name: "Renewables"},
+      {name: "Advanced Robotics"},
+      {name: "Additive Manufacturing"},
+      {name: "Other (please specify)"}
     ]
   }
 

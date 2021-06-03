@@ -15,7 +15,7 @@
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Contact information:
+          Contact details:
         </mat-panel-title>
         <mat-panel-description>
           Provide your contact info.
@@ -57,7 +57,7 @@
     <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Idea details:
+          General details:
         </mat-panel-title>
         <mat-panel-description>
           Type the idea information
@@ -89,19 +89,30 @@
         <p><mat-checkbox formControlName="advancerobotics">Advanced Robotics</mat-checkbox></p>
         <p><mat-checkbox formControlName="renewables">Renewables</mat-checkbox></p>
 
-        {{domains.name}}
+        {{domains.name}}s
         Add more options
       </section> -->
 
       <span class="domain-list-section">
-        <ul>
+        <label style="margin-bottom: 8px;">Choose idea domains(s): </label>
+        <ul class="isf_ul">
           <li *ngFor="let sub of domain.subdomain">
             <mat-checkbox color="primary">
               {{sub.name}}
             </mat-checkbox>
           </li>
         </ul>
+        <span *ngIf="other">
+          <mat-label>Specifiy additional idea domain:</mat-label>
+          <input matInput >
+        </span>
       </span>
+
+    
+      <label style="margin-bottom: 8px;">Patent disclaimer: </label>
+      <mat-checkbox color="primary"
+                    style="margin-top: 8px; display: block;">A patent has been granted for this idea?</mat-checkbox>
+        
 
       <mat-action-row>
         <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -120,9 +131,31 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <mat-form-field>
-        <mat-label>image</mat-label>
-        <input matInput>
+
+      <!-- What problem does your idea attempt to solve? Or the opportunity you want to create? -->
+      <mat-form-field class="example-full-width">
+        <mat-label>What problem does your idea attempt to solve? 
+                                            Or the opportunity you want to create? </mat-label>
+        <textarea matInput ></textarea>
+        <!-- <mat-hint align="start"><strong>Feel free to elaborate</strong> </mat-hint> -->
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Describe your proposed idea, and how it addresses the problem? </mat-label>
+          <textarea matInput ></textarea>
+          <!-- <mat-hint align="start"><strong>Feel free to elaborate</strong> </mat-hint> -->
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>What is the innovative step of your idea? </mat-label>
+          <textarea matInput ></textarea>
+          <!-- <mat-hint align="start"><strong>Feel free to elaborate</strong> </mat-hint> -->
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>What is the key value proposition of your idea? </mat-label>
+          <textarea matInput ></textarea>
+          <!-- <mat-hint align="start"><strong>Feel free to elaborate</strong> </mat-hint> -->
       </mat-form-field>
 
       <mat-action-row>
@@ -134,10 +167,47 @@
     <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
+          Development details:
+        </mat-panel-title>
+        <mat-panel-description>
+          Add dev. info.
+          <mat-icon>developer_board</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+    
+      <label style="margin: 15px auto;">What is the current development stage of the idea? </label>
+      <mat-radio-group [formControl]="floatLabelControl" color="primary">
+        <ul class="isf_ul">
+          <li><mat-radio-button value="idea">Idea</mat-radio-button></li>
+          <li><mat-radio-button value="research">Research</mat-radio-button></li>
+          <li><mat-radio-button value="proof-of-concept">Proof of concept</mat-radio-button></li>
+          <li><mat-radio-button value="mvp">Minimum value product (MVP)</mat-radio-button></li>
+          <li><mat-radio-button value="ready-for-production">Ready for production</mat-radio-button></li>
+          <li><mat-radio-button value="in-production">In-production</mat-radio-button></li>
+        </ul>
+      </mat-radio-group>
+    
+
+      <mat-form-field class="development-full-width">
+        <mat-label>Expected LAB7 resources and experties </mat-label>
+        <textarea matInput ></textarea>
+        <!-- <mat-hint align="start"><strong>Feel free to elaborate</strong> </mat-hint> -->
+      </mat-form-field>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           Attachments:
         </mat-panel-title>
         <mat-panel-description>
-          Add relevent documents
+          Add relevent documentation
           <mat-icon>attachment</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
@@ -183,14 +253,18 @@
           #content="ngModel"></textarea>
         <mat-error *ngIf="content.invalid">Please enter an idea title.</mat-error>
       </mat-form-field> -->
-      <div style="margin-top: 15px;">  <button
-        mat-raised-button
-        color="accent"
-        type="submit">Save</button>
+      <div style="margin-top: 15px;">  
         <button
-        mat-raised-button
-        color="accent"
-        style="margin-left: 12px; background-color:#64ca5b">Submit</button></div>
+          mat-raised-button>Cancel</button>
+        <button
+          mat-raised-button
+          color="accent"
+          style="margin-left: 10px; ">Save</button>
+        <button
+          mat-raised-button
+          color="accent"
+          style="margin-left: 10px; background-color:#64ca5b">Save and Submit</button>
+      </div>
     <!-- </form> -->
   <!-- </mat-card> -->
 
