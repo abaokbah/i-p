@@ -24,6 +24,7 @@ import { AuthInterceptor }      from "./auth/auth-interceptor";
 import { AngularMaterialModule} from "./angular-material.module";
 import { HomeComponent }        from "./home/home.component";
 import { NotfoundComponent }    from './notfound/notfound.component';
+import { DigitalPlateComponent } from './digital-plate/digital-plate.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { NotfoundComponent }    from './notfound/notfound.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    DigitalPlateComponent
   ],
   imports: [
     AppRoutingModule,
